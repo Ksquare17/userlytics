@@ -1,8 +1,9 @@
 'use client'
 
-import { useClerk } from '@clerk/nextjs'
 
-import { useMediaQuery, Box, Drawer, Button } from "@mui/material";
+import { SignOutButton } from '@clerk/nextjs'
+
+import { useMediaQuery, Box, Drawer, } from "@mui/material";
 import SidebarItems from "./SidebarItems";
 
 import { Sidebar } from 'react-mui-sidebar';
@@ -18,7 +19,6 @@ const MSidebar = ({
   onSidebarClose,
   isSidebarOpen,
 }: ItemType) => {
-  const { signOut } = useClerk()
 
   const lgUp = useMediaQuery((theme: any) => theme.breakpoints.up("lg"));
 
@@ -87,7 +87,9 @@ const MSidebar = ({
                 {/* <Upgrade /> */}
               </Box>
                    
-              <Button onClick={() => signOut({ redirectUrl: '/' })}>Sign out</Button>
+              <SignOutButton>
+          <button className='signout'> Sign Out </button>
+          </SignOutButton>
             </Sidebar >
           </Box>
         </Drawer>
@@ -133,6 +135,9 @@ const MSidebar = ({
           {/* ------------------------------------------- */}
           <SidebarItems />
           {/* <Upgrade /> */}
+          <SignOutButton>
+          <button className='signout'> Sign Out </button>
+          </SignOutButton>
         </Sidebar>
       </Box>
       {/* ------------------------------------------- */}

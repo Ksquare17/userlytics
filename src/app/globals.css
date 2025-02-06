@@ -78,7 +78,13 @@ body {
   color: white;
   animation-fill-mode: forwards;
 }
-
+.signout{
+  color: #618cf3;
+  font-size: 15px;
+  background: white;
+  cursor: pointer;
+  border: 0;
+}
 @keyframes heading {
   0% {
     top: -50px;
@@ -116,6 +122,8 @@ body {
   border-radius: 30%;
   margin-top: 40px;
   opacity: 0;
+  cursor: pointer;
+
   animation-name: btn;
   animation-duration: 2s;
   animation-delay: 2s;
