@@ -5,6 +5,7 @@ import { SignedIn, UserButton } from '@clerk/nextjs'
 
 import { useMediaQuery, Box, Drawer, } from "@mui/material";
 import SidebarItems from "./SidebarItems";
+import { useClerk } from '@clerk/clerk-react';
 
 import { Sidebar } from 'react-mui-sidebar';
 
@@ -23,7 +24,11 @@ const MSidebar = ({
   const lgUp = useMediaQuery((theme: any) => theme.breakpoints.up("lg"));
 
   const sidebarWidth = "270px";
+  const { signOut } = useClerk();
 
+  const handleSignOut = async () => {
+    await signOut({ redirectUrl: '/' }); // Specify the desired redirect URL
+  };
   // Custom CSS for short scrollbar
   const scrollbarStyles = {
     '&::-webkit-scrollbar': {
@@ -87,10 +92,9 @@ const MSidebar = ({
                 {/* <Upgrade /> */}
               </Box>
                    
-              <SignedIn>
-        {/* Mount the UserButton component */}
-        <UserButton />
-      </SignedIn>
+              <button className='signout' onClick={handleSignOut}>
+      Sign Out
+    </button>
             </Sidebar >
           </Box>
         </Drawer>
@@ -136,10 +140,9 @@ const MSidebar = ({
           {/* ------------------------------------------- */}
           <SidebarItems />
           {/* <Upgrade /> */}
-          <SignedIn>
-        {/* Mount the UserButton component */}
-        <UserButton />
-      </SignedIn>
+          <button className='signout' onClick={handleSignOut}>
+      Sign Out
+    </button>
         </Sidebar>
       </Box>
       {/* ------------------------------------------- */}
