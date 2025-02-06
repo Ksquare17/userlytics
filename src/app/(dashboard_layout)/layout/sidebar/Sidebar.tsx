@@ -1,7 +1,7 @@
 'use client'
 
 
-import { SignOutButton } from '@clerk/nextjs'
+import { SignedIn, UserButton } from '@clerk/nextjs'
 
 import { useMediaQuery, Box, Drawer, } from "@mui/material";
 import SidebarItems from "./SidebarItems";
@@ -87,9 +87,10 @@ const MSidebar = ({
                 {/* <Upgrade /> */}
               </Box>
                    
-              <SignOutButton>
-          <button className='signout'> Sign Out </button>
-          </SignOutButton>
+              <SignedIn>
+        {/* Mount the UserButton component */}
+        <UserButton />
+      </SignedIn>
             </Sidebar >
           </Box>
         </Drawer>
@@ -135,9 +136,10 @@ const MSidebar = ({
           {/* ------------------------------------------- */}
           <SidebarItems />
           {/* <Upgrade /> */}
-          <SignOutButton>
-          <button className='signout'> Sign Out </button>
-          </SignOutButton>
+          <SignedIn>
+        {/* Mount the UserButton component */}
+        <UserButton />
+      </SignedIn>
         </Sidebar>
       </Box>
       {/* ------------------------------------------- */}
