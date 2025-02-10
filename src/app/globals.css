@@ -167,7 +167,9 @@ body {
     height: 100vh;
     margin-bottom: 25px;
   }
-
+  .landing-btn > button{
+    top: 75%;
+  }
   #showcase h1 {
     font-size: 22px;
   }
